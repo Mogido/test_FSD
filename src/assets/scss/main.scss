@@ -1,4 +1,7 @@
-h1 {
-    color: red;
-    font-size: 50px;
-}
+@import "utils/reset";
+@import "utils/fonts";
+@import "utils/vars";
+@import "utils/mixins";
+
+//UI kit:
+@import "modules/colors&types.scss";
