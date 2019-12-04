@@ -2,3 +2,54 @@ body {
 	max-width: 1920px;
 	min-width: 320px;
 	}
+
+	.logo__wrapper {
+		border: 2px solid red;
+		margin-left: 30px;
+		margin-top: 30px;
+	}
+
+	.colors__wrapper {
+		margin-top: 67px;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 10.4%;
+		margin-right: 13.26%;
+	}
+
+	.color__item h2 {
+		@include h2Font(29px);
+	}
+
+	.color__item p {
+		@include bodyFont(29px);
+	}
+
+	.color-list li::before {
+		content: "";
+		display: block;
+		position: relative;
+		width: 70px;
+		height: 70px;
+		border-radius: 6px;
+		background: #1F2041;
+		
+		&:nth-child(2)::before {
+			background: rgba(31, 32, 65, 0.75);
+		};
+		&:nth-child(3) {
+			background: rgba(31, 32, 65, 0.5);
+		}
+		&:nth-child(3) {
+			background: rgba(31, 32, 65, 0.25);
+		}
+		&:nth-child(4) {
+			background: rgba(31, 32, 65, 0.05);
+		}
+		&:nth-child(5)::before {
+			background: #BC9CFF;
+		}
+		&:nth-last-child() {
+			background: #6FCF97;
+		}
+	}

@@ -1,18 +1,20 @@
-doctype html
-head
-	meta(charset='utf-8')
-	title colors&types
-body
-	block logo
-	ul.color-list
-		li Dark Shade 100% #1F2041
-		li Dark Shade 75% #1F2041
-		li Dark Shade 50% #1F2041
-		li Dark Shade 25% #1F2041
-		li Purple #BC9CFF
-		li Green #6FCF97
-	ul.font-list
-		li This one is the sub-section or widget title
-		li Next one is the item title inside widgets
-		li This is a label or CTA text
-		li This is the body text which is used for most of the design, like paragraphs, lists, etc.
+extends ../layout/main
+
+block variables
+	- var title = 'Colors & types';
+
+block content
+	include ../extends/logo_svg
+	.colors__wrapper
+		ul.color-list
+			+color-item('Dark Shade 100%', '#1F2041')
+			+color-item('Dark Shade 75%', '#1F2041')
+			+color-item('Dark Shade 50%', '#1F2041')
+			+color-item('Dark Shade 25%', '#1F2041')
+			+color-item('Purple', '#BC9CFF')
+			+color-item('Green', '#6FCF97')
+		ul.font-list
+			li This one is the sub-section or widget title
+			li Next one is the item title inside widgets
+			li This is a label or CTA text
+			li This is the body text which is used for most of the design, like paragraphs, lists, etc.
