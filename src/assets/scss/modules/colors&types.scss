@@ -4,9 +4,8 @@ body {
 	}
 
 	.logo__wrapper {
-		border: 2px solid red;
-		margin-left: 30px;
-		margin-top: 30px;
+		margin-left: 2.08%;
+		margin-top: 2.08%;
 	}
 
 	.colors__wrapper {
@@ -17,39 +16,76 @@ body {
 		margin-right: 13.26%;
 	}
 
+	.color-list {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 24.5%;
+	}
+
+	.color-list li {
+		list-style-type: none;
+		flex-grow: 2;
+		max-height: 90px;	
+		&:first-child::before {
+			@include square($shade100);
+		}	
+		&:nth-child(2)::before {
+			@include square($shade75);
+		}
+		&:nth-child(3)::before {
+			@include square($shade50);
+		}
+		&:nth-child(4)::before {
+			@include square($shade25);
+		}
+		&:nth-child(5)::before {
+			@include square($shade5);
+		}
+		&:nth-child(6)::before {
+			@include square($purple);
+		}
+		&:last-child::before {
+			@include square($green);
+		}
+	}
+
 	.color__item h2 {
 		@include h2Font(29px);
+		
 	}
 
 	.color__item p {
 		@include bodyFont(29px);
 	}
 
-	.color-list li::before {
-		content: "";
-		display: block;
-		position: relative;
-		width: 70px;
-		height: 70px;
-		border-radius: 6px;
-		background: #1F2041;
-		
-		&:nth-child(2)::before {
-			background: rgba(31, 32, 65, 0.75);
-		};
-		&:nth-child(3) {
-			background: rgba(31, 32, 65, 0.5);
+	.font-list {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 36.66%;
+		border: 2px solid red;
+	}
+
+	.font-list li {
+		list-style-type: none;
+		border: 2px solid green;
+		&:first-child {
+			@include h1Font();
+			&::before {
+				@include font-example("H1", 24px, 29px)
+			}
+		}
+		&:nth-child(2) {
+			@include h2Font(24px);
+			margin-top: 50px;
 		}
 		&:nth-child(3) {
-			background: rgba(31, 32, 65, 0.25);
+			@include h3Font();
+			margin-top: 50px;
 		}
-		&:nth-child(4) {
-			background: rgba(31, 32, 65, 0.05);
-		}
-		&:nth-child(5)::before {
-			background: #BC9CFF;
-		}
-		&:nth-last-child() {
-			background: #6FCF97;
+		&:last-child {
+			@include bodyFont(24px);
+			margin-top: 50px;
 		}
 	}
