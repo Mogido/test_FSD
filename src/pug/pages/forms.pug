@@ -1,0 +1,13 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Form elements';
+
+block content
+	include ../extends/logo_svg
+	.forms_wrapper
+		ul.basic-forms__list
+			li
+				label(for='form__text') text field
+					input#form__text(type='text' name='text' placeholder='Email')
+				

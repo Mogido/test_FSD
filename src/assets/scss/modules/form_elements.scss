@@ -1,0 +1,28 @@
+.forms_wrapper {
+	margin-top: 65px;
+	margin-left: 141px;
+	margin-right: 141px;
+	border: 2px solid red;
+}
+
+
+
+#form__text {
+	display: block;
+	width: 320px;
+	height: 44px;
+	background: #FFFFFF;
+	border: 1px solid $shade25;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 13px 15px;
+	color: $shade25;
+	&::-webkit-input-placeholder {
+		color: $shade25;
+	}
+	
+}
+
+#form__text label {
+	color: red;
+}

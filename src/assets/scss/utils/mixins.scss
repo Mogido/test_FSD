@@ -1,7 +1,7 @@
 //Fonts:
 
 @mixin h1Font() {
-	font-family: Quicksand;
+	font-family: $additionalFont;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 24px;
@@ -13,7 +13,7 @@
 }
 
 @mixin h2Font($line-height) {
-	font-family: Quicksand;
+	font-family: $additionalFont;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 19px;
@@ -25,20 +25,17 @@
 }
 
 @mixin h3Font() {
-	font-family: Montserrat;
+	font-family: $mainFont;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 12px;
 	line-height: 15px;
-	/* identical to box height */
-
 	text-transform: uppercase;
-
-	color: #1F2041;
+	color: $shade100;
 }
 
 @mixin bodyFont ($line-height) {
-	font-family: Montserrat;
+	font-family: $mainFont;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
