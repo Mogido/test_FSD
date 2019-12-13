@@ -1,4 +1,6 @@
 extends ../layout/main
+include ../includes/text-form/text-form
+
 
 block variables
 	- var title = 'Form elements';
@@ -6,8 +8,8 @@ block variables
 block content
 	include ../extends/logo_svg
 	.forms_wrapper
-		ul.basic-forms__list
-			li
-				label(for='form__text') text field
-					input#form__text(type='text' name='text' placeholder='Email')
+		.basic-forms_wrapper
+			.text-form__wrapper
+				+text-form ('text field', 'default', '', 'Email')
+				+text-form ('text field', 'hover/focus', 'This is pretty awesome', '')(class="text-form--modified-for-UI")
 				

@@ -24,10 +24,10 @@
 	color: #1F2041;
 }
 
-@mixin h3Font() {
+@mixin h3Font($font-weight) {
 	font-family: $mainFont;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: $font-weight;
 	font-size: 12px;
 	line-height: 15px;
 	text-transform: uppercase;

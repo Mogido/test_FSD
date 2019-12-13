@@ -82,7 +82,7 @@ body {
 			}
 		}
 		&:nth-child(3) {
-			@include h3Font();
+			@include h3Font(bold);
 			margin-top: 50px;
 			&::before {
 				@include font-example("H3", 12px, 15px)

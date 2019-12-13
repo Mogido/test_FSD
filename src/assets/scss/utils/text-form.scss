@@ -1,0 +1,42 @@
+.text-form {
+	width: 320px;
+	height: 67px;
+}
+
+
+.text-form input {
+	@include bodyFont(24px);
+	display: block;
+	width: 320px;
+	height: 44px;
+	background: #FFFFFF;
+	border: 1px solid $shade25;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 13px 15px;
+	color: $shade25;
+	&::-webkit-input-placeholder {
+		@include bodyFont(18px);
+		color: $shade25;
+	}
+	&:hover,
+	&:focus {
+		border: 1px solid $shade50;
+		color: $shade75;
+	}	
+}
+
+.text-form--modified-for-UI input {
+	border: 1px solid $shade50;
+		color: $shade75;
+}
+
+.text-form label {
+	@include h3Font(bold);
+}
+
+.text-form span {
+	@include h3Font(normal);
+	color: $shade50;
+	float: right;
+}

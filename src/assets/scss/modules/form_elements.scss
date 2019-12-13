@@ -1,28 +1,18 @@
+@import "utils/text-form";
+
 .forms_wrapper {
 	margin-top: 65px;
 	margin-left: 141px;
 	margin-right: 141px;
+}
+
+.basic-forms_wrapper {
+	display: flex;
+	width: 325px;
+	height: 400px;
+	flex-direction: column;
+	justify-content: space-between;
 	border: 2px solid red;
+	flex-wrap: wrap;
 }
 
-
-
-#form__text {
-	display: block;
-	width: 320px;
-	height: 44px;
-	background: #FFFFFF;
-	border: 1px solid $shade25;
-	box-sizing: border-box;
-	border-radius: 4px;
-	padding: 13px 15px;
-	color: $shade25;
-	&::-webkit-input-placeholder {
-		color: $shade25;
-	}
-	
-}
-
-#form__text label {
-	color: red;
-}

@@ -1,0 +1,5 @@
+mixin text-form (text, description_UI, value, placeholder_text)
+	.text-form&attributes(attributes)
+		label(for='text-form__input')= text
+		span= description_UI
+		input#text-form__input(type='text' name='text' value=value placeholder=placeholder_text)
