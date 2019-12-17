@@ -1,0 +1,225 @@
+//vars
+// ColorSystem and fontfamily for the Reservamos theme
+// Each variable inside uses the !default keyword
+
+$primary-font: 'OpenSans', sans-serif !default;
+
+$iqdropdown-fontsize-m: 14px !default;
+$iqdropdown-fontsize-l: 17px !default;
+
+// Color System
+// Primary colors ----------
+$primary-700: #002674 !default;
+
+// GrayScale ----------
+$gray-900: #4A4A4A !default;
+$gray-200: #E2E2E2 !default;
+$gray-100: #EEEEEE !default;
+
+$iqdropdown-item-color: #000000 !default;
+$iqdropdown-border: 1px solid $gray-200 !default;
+$iqdropdown-border-active: $primary-700 !default;
+$iqdropdown-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !default;
+$iqdropdown-background-hover: $gray-100 !default;
+$iqdropdown-height: 50px !default;
+$iqdropdown-menu-height: 75px !default;
+$iqdropdown-radius: 25px !default;
+$iqdropdown-icon-size: 15px !default;
+$iqdropdown-icon-color: $primary-700 !default;
+$iqdropdown-controls-size: 45px !default;
+$iqdropdown-close-size: 20px !default;
+
+// Miscellaneous mixins
+
+@mixin font-styles ($size: $iqdropdown-fontsize-l, $color: $gray-900, $weight: 400, $family: $primary-font) {
+	color: $color;
+	font-family: $family;
+	font-size: $size;
+	font-weight: $weight;
+  }
+  
+  @mixin background-image ($imgpath, $height, $width: 100%, $display: inline-block, $bg-size: contain, $bg-pos: center) {
+	background-image: url($imgpath);
+	background-position: $bg-pos;
+	background-repeat: no-repeat;
+	background-size: $bg-size;
+	content: '';
+	display: $display;
+	height: $height;
+	width: $width;
+  }
+  
+  @mixin last-child($prop: margin) {
+	&:last-child {
+	  #{$prop}: 0;
+	}
+  }
+  
+
+//app
+.iqdropdown {
+	align-items: center;
+	border: $iqdropdown-border;
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	height: $iqdropdown-height;
+	justify-content: space-between;
+	padding: 0 15px;
+	position: relative;
+	width: 100%;
+  
+	.iqdropdown-selection {
+	  @include font-styles($iqdropdown-fontsize-l);
+	  flex: 1;
+	  position: relative;
+  
+	  &::after {
+		@include background-image('../img/dropdown-arrow-down.png', 5px, 12px);
+		position: absolute;
+		right: 0;
+		top: 40%;
+	  }
+	}
+  
+	&.menu-open {
+	  border-color: $iqdropdown-border-active;
+  
+	  .iqdropdown-selection::after {
+		background-image: url('../img/dropdown-arrow-up.png');
+	  }
+	}
+  }
+  
+
+//controls
+.iqdropdown .iqdropdown-item-controls {
+	display: flex;
+	height: $iqdropdown-controls-size;
+  
+	.counter {
+	  @include font-styles;
+	  border-bottom: $iqdropdown-border;
+	  border-top: $iqdropdown-border;
+	  padding: 11px 20px;
+	}
+  
+	button {
+	  align-items: center;
+	  border: $iqdropdown-border;
+	  display: flex;
+	  height: $iqdropdown-controls-size;
+	  padding: 0 20px;
+	  transition: all 0.2s ease-in-out;
+  
+	  &:hover {
+		background-color: $iqdropdown-background-hover;
+	  }
+  
+	  &.button-decrement {
+		border-bottom-left-radius: $iqdropdown-radius;
+		border-top-left-radius: $iqdropdown-radius;
+	  }
+  
+	  &.button-increment {
+		border-bottom-right-radius: $iqdropdown-radius;
+		border-top-right-radius: $iqdropdown-radius;
+	  }
+	}
+  }
+
+  //Menu
+
+  .iqdropdown {
+	.iqdropdown-menu {
+	  background-color: #FFFFFF;
+	  box-shadow: $iqdropdown-shadow;
+	  cursor: default;
+	  display: none;
+	  left: 0;
+	  margin: -2px -1px -1px;
+	  position: absolute;
+	  right: 0;
+	  top: $iqdropdown-height;
+	  transition: all 0.2s ease-in-out;
+	  z-index: 99999;
+  
+	  &-option {
+		@include last-child('border');
+		align-items: center;
+		display: flex;
+		height: $iqdropdown-menu-height;
+		padding: 0 15px;
+	  }
+  
+	  &-close {
+		@include font-styles($iqdropdown-fontsize-m, $primary-700, 600);
+		height: $iqdropdown-close-size;
+		margin: 20px 0;
+		padding: 0 15px;
+		text-align: right;
+		width: 100%;
+	  }
+	}
+  
+	&.menu-open .iqdropdown-menu {
+	  display: block;
+	}
+  }
+  
+  @media only screen and (max-width: 640px) {
+	.iqdropdown .iqdropdown-menu.mobile-top-menu {
+	  top: -285px;
+	}
+  }
+
+  //description
+  .iqdropdown {
+	&-content {
+	  flex: 1;
+	  padding-right: 10px;
+	}
+  
+	&-item {
+	  @include font-styles($color: $iqdropdown-item-color);
+	}
+  
+	p.iqdropdown-description {
+	  @include font-styles($iqdropdown-fontsize-m);
+	  margin-top: 5px;
+	}
+  }
+
+  //icons
+  .iqdropdown .icon-decrement {
+	display: inline-block;
+	height: $iqdropdown-icon-size;
+	margin: auto;
+	min-width: $iqdropdown-icon-size;
+	position: relative;
+	width: $iqdropdown-icon-size;
+  
+	&::after {
+	  background: $iqdropdown-icon-color;
+	  content: '';
+	  display: block;
+	  height: 3px;
+	  position: absolute;
+	  top: 6px;
+	  transition: transform 0.25s ease-in-out;
+	  width: $iqdropdown-icon-size;
+	}
+  
+	&.icon-increment::before {
+	  background: $iqdropdown-icon-color;
+	  content: '';
+	  display: block;
+	  height: 3px;
+	  position: absolute;
+	  top: 6px;
+	  transform: rotate(90deg);
+	  transition: transform 0.25s ease-in-out;
+	  width: $iqdropdown-icon-size;
+	}
+  }
+  
